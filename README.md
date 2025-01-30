@@ -4,8 +4,8 @@ docker compose build
 docker compose up
 
 
-docker build -t docker-labels-link-page:latest .
-
+docker build -t many200/docker-labels-link-page:latest .
+docker push many200/docker-labels-link-page:latest .
 
 
 

@@ -2,15 +2,18 @@
     "name": "docker-labels-link-page",
     "version": "1.0.0",
     "description": "",
+    "keywords": [],
+    "author": "MarioAdrian",
+    "license": "MIT",
+    "repository": "https://github.com/many20/docker-labels-link-page",
     "main": "index.js",
     "type": "module",
     "scripts": {
         "start": "pnpx zx lib/server.mjs",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "docker:build": "docker build -t many200/docker-labels-link-page:latest .",
+        "docker:push": "docker push many200/docker-labels-link-page:latest ."
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
     "dependencies": {
         "express": "^5.0.0",
         "mustache": "^4.2.0",
