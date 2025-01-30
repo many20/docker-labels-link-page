@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <title>Links</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width" />
+
+        <style>
+            :root {
+                color-scheme: light dark; /* both supported */
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, sans-serif;
+                font-size: 14px;
+            }
+
+            button,
+            input,
+            label,
+            select {
+                font-family: 'Segoe UI', Tahoma, sans-serif;
+                margin-right: 5px;
+            }
+
+            .block {
+                padding: 15px 0 5px 0px;
+            }
+            /*
+            @media (prefers-color-scheme: dark) {
+                body {
+                    color: #eee;
+                    background: #121212;
+                }
+
+                body a {
+                    color: #809fff;
+                }
+            } */
+        </style>
+    </head>
+
+    <body>
+        <div style="padding-left: 10%; padding-top: 10%">
+            <div id="title" style="border-bottom: 1px solid rgb(181, 181, 181); font-size: 150%; padding: 5px 0px 5px; margin-bottom: 5px">
+                Links {{version}}
+            </div>
+
+            {{#links}}
+            <div class="block">
+                <a href="{{url}}" target="{{newPage}}">{{name}}</a>
+            </div>
+            {{/links}}
+        </div>
+    </body>
+</html>

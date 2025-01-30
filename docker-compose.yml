@@ -1,0 +1,18 @@
+services:
+  docker-labels-link-page:
+    build: .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8888:8888"
+    restart: always
+    labels:
+      - "docker-labels-link-page.enabled=true"
+      - "docker-labels-link-page.links.test.name=google"
+      - "docker-labels-link-page.links.test.url=https://google.de"
+      #- "docker-labels-link-page.links.test.new-page=true"
+      - "docker-labels-link-page.links.test.priority=1"
+      - "docker-labels-link-page.links.test2.name=bing"
+      - "docker-labels-link-page.links.test2.url=https://bing.de"
+      - "docker-labels-link-page.links.test2.new-page=true"
+      - "docker-labels-link-page.links.test2.priority=2"
