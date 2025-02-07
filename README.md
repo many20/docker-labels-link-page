@@ -1,15 +1,9 @@
+# Docker Labels Link Page
 
 
-docker compose build
-docker compose up
+## labels
 
-
-docker build -t many200/docker-labels-link-page:latest .
-docker buildx build --platform linux/amd64,linux/arm64 -t many200/docker-labels-link-page:latest .
-
-docker push many200/docker-labels-link-page:latest
-
-
+add to docker labels:
 
 docker-labels-link-page.enabled={{true|false}}
 docker-labels-link-page.links.{{ID}}.name={{NAME}}
