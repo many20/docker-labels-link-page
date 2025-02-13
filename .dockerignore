@@ -3,6 +3,9 @@
 .vscode
 node_modules
 .prettierignore
-.prettierrc
+.prettierrc.json
 .editorconfig
 jsconfig.json
+Dockerfile
+docker-compose.yml
+*.md

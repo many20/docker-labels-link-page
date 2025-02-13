@@ -1,0 +1,25 @@
+{
+    "linksDemo": [
+        {
+            "name": "google.de",
+            "url": "https://google.de",
+            "new-page": true,
+            "priority": 100,
+            "section": "test-google"
+        },
+        {
+            "name": "google.de 2",
+            "url": "https://google.de",
+            "new-page": true,
+            "priority": 1,
+            "section": "test-google"
+        },
+        {
+            "name": "bing.de",
+            "url": "https://bing.de",
+            "new-page": true,
+            "priority": 100,
+            "section": "test"
+        }
+    ]
+}

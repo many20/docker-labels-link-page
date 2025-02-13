@@ -47,11 +47,13 @@
                 Links {{version}}
             </div>
 
-            {{#links}}
+            {{#each linkGroups}}
+            {{#if @key}}<div class="section">{{@key}}</div>{{/if}}
+            {{#each this}}
             <div class="block">
                 <a href="{{url}}" target="{{newPage}}">{{name}}</a>
             </div>
-            {{/links}}
+            {{/each}} {{/each}}
         </div>
     </body>
 </html>

@@ -3,6 +3,7 @@ services:
     build: .
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./configFile:/app/config
     ports:
       - "8888:8888"
     restart: always
