@@ -13,7 +13,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "docker:build": "docker build -t many200/docker-labels-link-page:latest .",
         "docker:buildMultiPlatform": "docker buildx build --platform linux/amd64,linux/arm64 -t many200/docker-labels-link-page:latest .",
-        "docker:push": "docker push many200/docker-labels-link-page:latest ."
+        "docker:push": "docker push many200/docker-labels-link-page:latest"
     },
     "dependencies": {
         "express": "^5.0.0",
