@@ -4,3 +4,5 @@
 .buildcache/
 node_modules/
 public
+config/
+configFile/

@@ -69,7 +69,7 @@
             <div class="section">{{@key}}</div>
             {{/if}} {{#each this}}
             <div class="block">
-                <span class="dot"></span>
+                <span class="dot {{#if test}}test{{/if}}"></span>
                 <a href="{{url}}" target="{{newPage}}">{{name}}</a>
             </div>
             {{/each}} {{/each}}
@@ -77,6 +77,31 @@
     </body>
 
     <script type="text/javascript">
+        // function ping(ip, timeout = 0) {
+        //     return new Promise((resolve, reject) => {
+        //         let timer;
+        //         if (timeout > 0) {
+        //             timer = setTimeout(() => {
+        //                 const err = new Error('timeout after ' + timeout + 'ms');
+        //                 err.name = 'timeout';
+        //                 reject(err);
+        //             }, timeout);
+        //         }
+        //         const img = new Image();
+        //         img.onload = ev => {
+        //             const end = new Date().getTime();
+        //             if (timer) clearTimeout(timer);
+        //             resolve({ diff: end - start, ev });
+        //         };
+        //         img.onerror = e => {
+        //             const end = new Date().getTime();
+        //             if (timer) clearTimeout(timer);
+        //             resolve({ diff: end - start, e });
+        //         };
+        //         const start = new Date().getTime();
+        //         img.src = ip;
+        //     });
+        // }
         function ping(ip, timeout = 0) {
             return new Promise((resolve, reject) => {
                 let timer;
@@ -87,19 +112,22 @@
                         reject(err);
                     }, timeout);
                 }
-                const img = new Image();
-                img.onload = ev => {
-                    const end = new Date().getTime();
-                    if (timer) clearTimeout(timer);
-                    resolve({ diff: end - start, ev });
-                };
-                img.onerror = e => {
-                    const end = new Date().getTime();
-                    if (timer) clearTimeout(timer);
-                    resolve({ diff: end - start, e });
-                };
+
                 const start = new Date().getTime();
-                img.src = ip;
+                const http = new XMLHttpRequest();
+                http.open('GET', ip + '?rnd=' + Math.floor(Math.random() * 10000), /*async*/ true);
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4 && http.status !== 0) {
+                        const end = new Date().getTime();
+                        if (timer) clearTimeout(timer);
+                        resolve({ diff: end - start, status: http.status });
+                    }
+                };
+                try {
+                    http.send(null);
+                } catch (exception) {
+                    // this is expected
+                }
             });
         }
 
@@ -110,9 +138,10 @@
             const link = block.querySelector('a');
             const url = link.getAttribute('href');
             const newPage = link.getAttribute('target');
+            if (!dot.classList.contains('test')) return;
             dot.classList.add('checking');
             console.log('checking');
-            ping(url, 1000)
+            ping(url, 1000 * 10)
                 .then(res => {
                     dot.classList.remove('checking');
                     dot.classList.add('responded');

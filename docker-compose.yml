@@ -9,10 +9,12 @@ services:
     restart: always
     labels:
       - "docker-labels-link-page.enabled=true"
+      - "docker-labels-link-page.links.test.test=false"
       - "docker-labels-link-page.links.test.name=google"
       - "docker-labels-link-page.links.test.url=https://google.de"
       #- "docker-labels-link-page.links.test.new-page=true"
       - "docker-labels-link-page.links.test.priority=1"
+      - "docker-labels-link-page.links.test2.test=false"
       - "docker-labels-link-page.links.test2.name=bing"
       - "docker-labels-link-page.links.test2.url=https://bing.de"
       - "docker-labels-link-page.links.test2.new-page=true"
