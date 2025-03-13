@@ -5,7 +5,7 @@ WORKDIR /app
 
 RUN apk update && apk add bash curl
 
-RUN npm install -g pnpm@9
+RUN npm install -g pnpm@10
 
 COPY package.json .
 COPY pnpm-lock.yaml .
